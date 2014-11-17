@@ -1,3 +1,0 @@
-please read the setup section again, so you could benifit from the current release.
-all the old methods are still working, but I encourage you to use BtConnector instead of BtConnection. 
-BtConnector works much better.

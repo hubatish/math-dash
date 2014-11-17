@@ -1,4 +1,0 @@
-D:\ZAch\gmaking\unity\MathDash\Assets\Scripts\MathDash\MathDash\bin\Debug\MathDash.exe.config
-D:\ZAch\gmaking\unity\MathDash\Assets\Scripts\MathDash\MathDash\obj\Debug\MathDash.csprojResolveAssemblyReference.cache
-D:\ZAch\gmaking\unity\MathDash\Assets\Scripts\MathDash\math-dash-recreation\MathDash\bin\Debug\MathDash.exe.config
-D:\ZAch\gmaking\unity\math-dash\MathDash\Assets\Scripts\MathDash\math-dash-recreation\MathDash\bin\Debug\MathDash.exe.config
