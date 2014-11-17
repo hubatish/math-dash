@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MathDash
 {
-    public class EquationSetter : MonoBehaviour
+    public class EquationDecider : MonoBehaviour
     {
         protected EquationManager equation;
 
@@ -22,8 +22,13 @@ namespace MathDash
             decider = new RandomDecider<Equation>();
             //What to do when run out of equations in list
             decider.NoMoreItems = () => { PauseToolbox.Instance.GetComponent<GameOver>().EndGame(); };
+            LoadFromFile(fileName);
+        }
+
+        public void LoadFromFile(string fName)
+        {
             //Load equations from file
-            if(!decider.LoadFromFile(fileName))
+            if(!decider.LoadFromFile(fName))
             {
                 //error occurred
                 SetDefaultList();
@@ -32,7 +37,7 @@ namespace MathDash
 
         //Use default list of equations
         //And save that list to file
-        public void SetDefaultList()
+        protected void SetDefaultList()
         {
             decider.items = new List<Equation>
             {

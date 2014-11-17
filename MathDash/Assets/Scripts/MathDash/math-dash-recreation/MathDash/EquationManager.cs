@@ -54,7 +54,7 @@ namespace MathDash
 
         public Equation equation = new Equation();
 
-        protected EquationSetter setter;
+        protected EquationDecider setter;
 
 /*        public void SetSolution(int sol)
         {
@@ -105,7 +105,7 @@ namespace MathDash
             //textSoln.text = solution.ToString();
             equation.operation = Op.Add;
             textOperator.text = Equation.OpToSymbol(curOperator);
-            setter = gameObject.GetComponent<EquationSetter>();
+            setter = gameObject.GetComponent<EquationDecider>();
             setter.SetNewEquation();
         }
 

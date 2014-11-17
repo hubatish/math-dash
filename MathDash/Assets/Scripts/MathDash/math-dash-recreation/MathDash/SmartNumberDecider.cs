@@ -5,31 +5,25 @@ using System.Linq;
 
 namespace MathDash
 {
-		public class SolutionSet
-		{
-			public int numberOne {get; set; }
-			public int numberTwo {get; set; }
+
+    /// <summary>
+    /// Decide which number should be spawned next
+    /// "Intelligent" in that it takes current numbers on screen and in equation bar into account
+    /// Bulk of code is from original MathDash project
+    /// </summary>
+	public class SmartNumberDecider : INumberDecider
+	{
+        public class SolutionSet
+        {
+            public int numberOne { get; set; }
+            public int numberTwo { get; set; }
             public SolutionSet(int one, int two)
             {
                 numberOne = one;
                 numberTwo = two;
             }
-		}
+        }
 
-    public class SpawningNumberConstants
-    {
-        //Try not to spawn more than this number for each atom
-        public int MAX_ATOM_NUMBER_ON_SCREEN = 2;
-        //This number could add to some other number to make solution
-        public int ALL_SOLUTIONS_PRIORITY = 2;
-        //priority given to numbers in the bubble
-        public int CURRENT_SOLUTIONS_PRIORITY = 6;
-        //public float ASSISTED_ATOM_GENERATION_DIFFICULTY_SCALAR = 1;
-        public int ADJUSTED_GENERAL_SOLUTIONS_PRIORITY = 1;
-    }
-		
-	public class SmartNumberDecider : INumberDecider
-	{
         //Try not to spawn more than this number for each atom
         public int MAX_ATOM_NUMBER_ON_SCREEN = 2;
         //This number could add to some other number to make solution
@@ -43,55 +37,9 @@ namespace MathDash
 
         protected Transform bubbleParent;
 
-        protected string fileName = "spawningDifficulty";
-
         protected void Start()
         {
-            bubbleParent = GameObject.Find("AllBubbles").transform;
-            LoadNumbers(fileName);
-        }
-
-        protected void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                LoadNumbers(fileName + "1");
-            }
-            else if(Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                LoadNumbers(fileName + "2");
-            }
-            else if(Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                LoadNumbers(fileName + "3");
-            }
-        }
-
-        protected void LoadNumbers(string fName)
-        {
-            fName += ".json";
-            //read constants from file
-            IEnumerable<SpawningNumberConstants> spawningNumbers = FileInput.Instance.ReadAndDeserialize<SpawningNumberConstants>(fName);
-            if (spawningNumbers != null && spawningNumbers.Count() != 0)
-            {
-                SpawningNumberConstants constants = spawningNumbers.First();
-                MAX_ATOM_NUMBER_ON_SCREEN = constants.MAX_ATOM_NUMBER_ON_SCREEN;
-                ALL_SOLUTIONS_PRIORITY = constants.ALL_SOLUTIONS_PRIORITY;
-                CURRENT_SOLUTIONS_PRIORITY = constants.CURRENT_SOLUTIONS_PRIORITY;
-                ADJUSTED_GENERAL_SOLUTIONS_PRIORITY = constants.ADJUSTED_GENERAL_SOLUTIONS_PRIORITY;
-            }
-            else
-            {
-                //create file off current numbers
-                SpawningNumberConstants constants = new SpawningNumberConstants
-                {
-                    MAX_ATOM_NUMBER_ON_SCREEN = MAX_ATOM_NUMBER_ON_SCREEN,
-                    ALL_SOLUTIONS_PRIORITY = ALL_SOLUTIONS_PRIORITY,
-                    CURRENT_SOLUTIONS_PRIORITY = CURRENT_SOLUTIONS_PRIORITY,
-                    ADJUSTED_GENERAL_SOLUTIONS_PRIORITY = ADJUSTED_GENERAL_SOLUTIONS_PRIORITY
-                };
-                FileInput.Instance.WriteAndSerialize<SpawningNumberConstants>(new List<SpawningNumberConstants>() { constants }, fName);
-            }
+            bubbleParent = BubbleParent.Instance.transform;
         }
 
         /// <summary>

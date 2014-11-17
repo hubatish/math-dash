@@ -13,19 +13,23 @@ namespace MathDash
         protected int period = 0;
         public int numPeriods = 3;
 
-        Transform bubbleParent;
+        protected Transform bubbleParent;
+
+        protected DifficultySetter difficultyManager;
 
         protected void Awake()
         {
             bubbleParent = GameObject.Find("AllBubbles").transform;
+            difficultyManager = BubbleMakerToolbox.Instance.GetComponent<DifficultySetter>();
         }
 
         public void StartNewPeriod()
         {
-            if(period>=numPeriods)
+            difficultyManager.GotoNextLevel();
+/*            if(period>=numPeriods)
             {
                 PauseToolbox.Instance.GetComponent<GameOver>().EndGame();
-            }
+            }*/
             UserRecorder.Instance.SetPeriod(period);
             period += 1;
 

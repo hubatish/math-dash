@@ -18,22 +18,25 @@ namespace MathDash
         //timers
         protected Timer gameTimer;
         protected Timer plusTimer;
+        protected Timer scoreTimer;
 
         public float gameTime = 40f;
         public float plusTime = 5f;
+        public float scoreTime = 2f;
+
+        //did the game just start?
+        protected float timeSoFar = 0f;
 
         //handle the GUI
         public GameObject plusSign;
         public GUITimer gui;
 
+        public TextMesh scorePrefab;
+        protected TextMesh spawnedPrefab;
+
         //Set Unity timeScale to 0 to stop other scripts, but keep going using real time
         protected float lastRealTime;
         protected float prevTimeScale;
-
-        //For writing to serial ports
-        protected SerialPort port;
-        protected byte[] pauseByte;
-        protected byte[] startByte;
 
         protected PeriodManager periodManager;
 
@@ -45,31 +48,21 @@ namespace MathDash
             gui.StartTimer(gameTime);
             plusTimer = new Timer();
             plusTimer.Done = DonePause;
+            scoreTimer = new Timer();
+            scoreTimer.Started = delegate()
+            {
+                //also display the score for a second
+                spawnedPrefab = (TextMesh)GameObject.Instantiate(scorePrefab);
+                spawnedPrefab.text = "Your Score: " + UserRecorder.Instance.score.score;
+            };
+            scoreTimer.Done = delegate()
+            {
+                GameObject.Destroy(spawnedPrefab.gameObject);
+            };
 
             lastRealTime = Time.realtimeSinceStartup;
 
             periodManager = gameObject.GetComponent<PeriodManager>();
-
-            //Initialize port data
-            string[] ports = SerialPort.GetPortNames();
-            string portName = "COM3";
-            if(ports.Length>0)
-            {
-                portName = ports[0];
-            }
-            port = new SerialPort(portName,9600,Parity.None,8,StopBits.One);
-            try
-            {
-                port.Open();
-            }
-            catch(Exception ex)
-            {
-                Debug.Log("Error opening port: "+ ex.Message);
-            }
-            pauseByte = new byte[1];
-            startByte = new byte[1];
-            pauseByte[0] = 1;
-            startByte[0] = 2;
             
             //pause to start with
             DoneGame();
@@ -82,7 +75,10 @@ namespace MathDash
             float deltaTime = Time.realtimeSinceStartup - lastRealTime;
             gameTimer.Update(deltaTime);
             plusTimer.Update(deltaTime);
+            scoreTimer.Update(deltaTime);
             lastRealTime = Time.realtimeSinceStartup;
+
+            timeSoFar += deltaTime;
         }
 
         public void DoneGame()
@@ -91,11 +87,14 @@ namespace MathDash
             plusTimer.Start(plusTime);
             Pause();
             plusSign.SetActive(true);
+
             //We're starting a new period!  Handled by another script
-            if(Time.realtimeSinceStartup>0.5)
+            if(timeSoFar>0.5)
             {
                 periodManager.StartNewPeriod();
-                WriteToPort("2\n");
+
+                //also display score
+                scoreTimer.Start(scoreTime);
             }
         }
 
@@ -106,9 +105,6 @@ namespace MathDash
             plusSign.SetActive(false);
             Resume();
             gui.StartTimer(gameTime);
-
-            //let the serial port know we're starting again
-            WriteToPort("1\n");
         }
 
         public void Pause()
@@ -126,22 +122,6 @@ namespace MathDash
         public void Resume()
         {
             Time.timeScale = prevTimeScale;
-        }
-
-        protected void WriteToPort(byte[] bytes)
-        {
-            if(port.IsOpen)
-            {
-                port.Write(bytes, 0, 1);
-            }
-        }
-
-        protected void WriteToPort(string info)
-        {
-            if (port.IsOpen)
-            {
-                port.Write(info);
-            }
         }
     }
 }

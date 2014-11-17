@@ -39,7 +39,14 @@ namespace MathDash
                 case Op.Subtract:
                     return a - b;
                 case Op.Divide:
-                    return a / b;
+                    if(b!=0)
+                    {
+                        return a / b;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 case Op.Multiply:
                     return a * b;
             }

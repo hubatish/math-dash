@@ -12,7 +12,11 @@ namespace MathDash
         public void AddToScore(int score)
         {
             this.score += score;
-            scoreText.text = score.ToString();
+            if(this.score<=0)
+            {
+                this.score = 0;
+            }
+            scoreText.text = this.score.ToString();
         }
         public int score = 0;
         public TextMesh scoreText;

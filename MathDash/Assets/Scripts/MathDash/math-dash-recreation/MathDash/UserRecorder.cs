@@ -17,7 +17,7 @@ namespace MathDash
         protected IList<SolvedEquation> stats = new List<SolvedEquation>();
         public int curPeriod = 0;
 
-        protected Score score;
+        public Score score;
 
         //Info about the current equation
         protected SolvedEquation curStat;
@@ -66,7 +66,7 @@ namespace MathDash
             timeOnEquation = 0f;
         }
 
-        protected void Start()
+        protected void Awake()
         {
             score = gameObject.GetComponent<Score>();
             fileName += DateTime.Now.ToString("yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture) + ".json";
