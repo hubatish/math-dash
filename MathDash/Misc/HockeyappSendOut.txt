@@ -1,0 +1,11 @@
+Hello!
+
+Try out Math Dash on an android! I'm using Hockeyapp to distribute this and keep you all updated on versions.  To get it working, please follow the instructions Hockeyapp provides - mostly install Hockeyapp first and then install "MathDash" from the their app.  If you have any problems (or questions, or suggestions, or anything) please email me.
+
+The config files are located at: /sdcard/Android/data/com.DrexelResearch.MathDash/files/
+The equations2.json file contains a list of equations that will be played.  Description of variables:
+solution - solution of equation (on right hand side)
+operator - operation to be done, represented by an int.  0=+,-=1,*=2,/=3
+
+Let me what you want me to work on next (timer, smarter bubble spawning?),
+-Zach

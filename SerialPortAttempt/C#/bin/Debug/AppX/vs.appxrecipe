@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>AESOP</Machine>
+    <WindowsUser>Zach</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>Microsoft.SDKSamples.UsbCdcControl.CS</PackageIdentityName>
+    <IntermediateOutputPath>D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>86B65A0E1C1CC0BE173E0B32888F1E15CF4A39F6C3DAAFCEC795777D3BA5B71D</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>Microsoft.SDKSamples.UsbCdcControl.CS_1.0.0.0_neutral__8wekyb3d8bbwe</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>Microsoft.SDKSamples.UsbCdcControl.CS_8wekyb3d8bbwe!UsbCdcControl.App</RegisteredUserModeAppID>
+    <RegisteredPackageID>Microsoft.SDKSamples.UsbCdcControl.CS</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-11-10T16:49:36.225</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\UsbCdcControl.exe">
+      <PackagePath>UsbCdcControl.exe</PackagePath>
+      <Modified>2014-11-10T16:49:35.200</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\microsoft-sdk.png">
+      <PackagePath>Assets\microsoft-sdk.png</PackagePath>
+      <Modified>2014-11-10T16:45:04.434</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\placeholder-sdk.png">
+      <PackagePath>Assets\placeholder-sdk.png</PackagePath>
+      <Modified>2014-11-10T16:45:04.464</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\smallTile-sdk.png">
+      <PackagePath>Assets\smallTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-11-10T16:45:04.493</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\splash-sdk.png">
+      <PackagePath>Assets\splash-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-11-10T16:45:04.520</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\squareTile-sdk.png">
+      <PackagePath>Assets\squareTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-11-10T16:45:04.548</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\storeLogo-sdk.png">
+      <PackagePath>Assets\storeLogo-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2014-11-10T16:45:04.597</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\tile-sdk.png">
+      <PackagePath>Assets\tile-sdk.png</PackagePath>
+      <Modified>2014-11-10T16:45:04.624</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\Assets\windows-sdk.png">
+      <PackagePath>Assets\windows-sdk.png</PackagePath>
+      <Modified>2014-11-10T16:45:04.653</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Scenario3_Write.xbf">
+      <PackagePath>Scenario3_Write.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Scenario2_Read.xbf">
+      <PackagePath>Scenario2_Read.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Scenario1_Initialize.xbf">
+      <PackagePath>Scenario1_Initialize.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Scenario4_Loopback.xbf">
+      <PackagePath>Scenario4_Loopback.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Common\StandardStyles.xbf">
+      <PackagePath>Common\StandardStyles.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf">
+      <PackagePath>Sample-Utils\SampleTemplateStyles.xbf</PackagePath>
+      <Modified>2014-11-10T16:49:34.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\UsbCdcControl.xr.xml">
+      <PackagePath>UsbCdcControl.xr.xml</PackagePath>
+      <Modified>2014-11-10T16:49:33.781</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\ZAch\gmaking\unity\math-dash\SerialPortAttempt\C#\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2014-11-10T16:49:35.934</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
