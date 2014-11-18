@@ -81,6 +81,11 @@ namespace MathDash
             applicationIsQuitting = true;
         }
 
+        public virtual void OnLevelWasLoaded(int level)
+        {
+            applicationIsQuitting = false;
+        }
+
         /// <summary>
         /// applicationIsQuitting was getting set to true and never being reset to false
         /// We do that here

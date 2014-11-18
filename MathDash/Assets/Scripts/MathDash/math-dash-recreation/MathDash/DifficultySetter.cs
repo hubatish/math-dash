@@ -20,10 +20,10 @@ namespace MathDash
             public int ADJUSTED_GENERAL_SOLUTIONS_PRIORITY = 1;
         }
 
-        public class BlockDifficulty
+        public class PeriodDifficulty
         {
             public int level;
-            public BlockDifficulty(int l)
+            public PeriodDifficulty(int l)
             {
                 level = l;
             }
@@ -36,25 +36,28 @@ namespace MathDash
         public EquationDecider equationDecider;
         protected string equationsFile = "equations";
 
-        protected GenericDecider<BlockDifficulty> blockDecider = new GenericDecider<BlockDifficulty>();
-        protected string blocksFile = "blockDificulty.json";
+        protected GenericDecider<PeriodDifficulty> periodDecider = new GenericDecider<PeriodDifficulty>();
+        protected string periodsFile = "blockDificulty.json";
 
         protected void Start()
         {
             numberDecider = BubbleMakerToolbox.Instance.GetComponent<SmartNumberDecider>();
             LoadDifficulty(difficultyFile);
 
-            blockDecider.NoMoreItems = () => { PauseToolbox.Instance.GetComponent<GameOver>().EndGame(); };
-            if(!blockDecider.LoadFromFile(blocksFile))
+            periodDecider.NoMoreItems = () => 
+            { 
+                PauseToolbox.Instance.GetComponent<GameOver>().EndGame();
+            };
+            if(!periodDecider.LoadFromFile(periodsFile))
             {
-                blockDecider.items = new List<BlockDifficulty>
+                periodDecider.items = new List<PeriodDifficulty>
                 {
-                    new BlockDifficulty(1),
-                    new BlockDifficulty(2),
-                    new BlockDifficulty(3),
-                    new BlockDifficulty(4)
+                    new PeriodDifficulty(1),
+                    new PeriodDifficulty(2),
+                    new PeriodDifficulty(3),
+                    new PeriodDifficulty(4)
                 };
-                blockDecider.SaveToFile(blocksFile);
+                periodDecider.SaveToFile(periodsFile);
             }
         }
 
@@ -76,7 +79,11 @@ namespace MathDash
 
         public void GotoNextLevel()
         {
-            blockDecider.GetItem();
+            PeriodDifficulty difficulty = periodDecider.GetItem();
+            if(difficulty!=null)
+            {
+                LoadLevel(difficulty.level);
+            }
         }
 
         public void LoadLevel(int level)

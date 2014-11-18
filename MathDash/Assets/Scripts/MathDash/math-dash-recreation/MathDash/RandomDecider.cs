@@ -51,5 +51,10 @@ namespace MathDash
                 return GetItem(0);
             }
         }
+
+        protected override void ResetPosition()
+        {
+            itemsRetrieved = new HashSet<int>();
+        }
     }
 }

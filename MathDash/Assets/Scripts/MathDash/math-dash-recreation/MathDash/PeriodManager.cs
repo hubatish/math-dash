@@ -38,8 +38,12 @@ namespace MathDash
             {
                 GameObject.Destroy(bubble.gameObject);
             }
-
-            equationManager.GetNextEquation();
+            
+            if(period!=1)
+            {
+                //not the first period
+                equationManager.GetNextEquation();
+            }
         }
     }
 }

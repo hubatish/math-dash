@@ -57,7 +57,7 @@ namespace MathDash
             }
             catch (Exception ex)
             {
-                Debug.Log("exception!" + ex.InnerException);
+                Debug.Log("exception!" + ex.InnerException + " likely file missing at " + fileName);
                 return "";
             }
         }

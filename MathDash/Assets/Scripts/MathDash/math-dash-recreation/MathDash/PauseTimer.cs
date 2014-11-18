@@ -89,10 +89,10 @@ namespace MathDash
             plusSign.SetActive(true);
 
             //We're starting a new period!  Handled by another script
+            periodManager.StartNewPeriod();
+
             if(timeSoFar>0.5)
             {
-                periodManager.StartNewPeriod();
-
                 //also display score
                 scoreTimer.Start(scoreTime);
             }

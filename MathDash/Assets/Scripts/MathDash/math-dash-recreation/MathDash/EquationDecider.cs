@@ -21,7 +21,10 @@ namespace MathDash
         {
             decider = new RandomDecider<Equation>();
             //What to do when run out of equations in list
-            decider.NoMoreItems = () => { PauseToolbox.Instance.GetComponent<GameOver>().EndGame(); };
+            decider.NoMoreItems = () =>
+            {
+                PauseToolbox.Instance.GetComponent<GameOver>().EndGame();
+            };
             LoadFromFile(fileName);
         }
 
@@ -31,13 +34,13 @@ namespace MathDash
             if(!decider.LoadFromFile(fName))
             {
                 //error occurred
-                SetDefaultList();
+                SetDefaultList(fName);
             }
         }
 
         //Use default list of equations
         //And save that list to file
-        protected void SetDefaultList()
+        protected void SetDefaultList(string fName)
         {
             decider.items = new List<Equation>
             {
@@ -62,7 +65,7 @@ namespace MathDash
                     solution = 24
                 }
             };
-            decider.SaveToFile(fileName);
+            decider.SaveToFile(fName);
         }
 
         public void SetNewEquation()
