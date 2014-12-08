@@ -39,10 +39,10 @@ namespace MathDash
         protected GenericDecider<PeriodDifficulty> periodDecider = new GenericDecider<PeriodDifficulty>();
         protected string periodsFile = "blockDificulty.json";
 
-        protected void Start()
+        protected void Awake()
         {
             numberDecider = BubbleMakerToolbox.Instance.GetComponent<SmartNumberDecider>();
-            LoadDifficulty(difficultyFile);
+            //LoadDifficulty(difficultyFile);
 
             periodDecider.NoMoreItems = () => 
             { 
@@ -105,7 +105,7 @@ namespace MathDash
                     break;
                 case 3:
                     LoadEquations(equationsFile + "2");
-                    LoadEquations(difficultyFile + "1");
+                    LoadDifficulty(difficultyFile + "1");
                     break;
                 case 4:
                     LoadEquations(equationsFile + "2");
@@ -124,6 +124,7 @@ namespace MathDash
             {
                 fName += ".json";
             }
+            Debug.Log("loading file " + fName);
             equationDecider.LoadFromFile(fName);
         }
 

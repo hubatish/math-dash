@@ -45,7 +45,7 @@ namespace MathDash
             //initialize timers
             gameTimer = new Timer(gameTime);
             gameTimer.Done = DoneGame;
-            gui.StartTimer(gameTime);
+            //gui.StartTimer(gameTime);
             plusTimer = new Timer();
             plusTimer.Done = DonePause;
             scoreTimer = new Timer();
@@ -66,6 +66,7 @@ namespace MathDash
             
             //pause to start with
             DoneGame();
+            //Invoke("DoneGame", 0.03f);
         }
 
 

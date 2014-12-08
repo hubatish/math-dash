@@ -14,7 +14,6 @@ namespace MathDash
 
         public virtual T GetItem()
         {
-            curItem = (curItem + 1);
             if(curItem>=items.Count)
             {
                 //keep looping so we don't break
@@ -25,7 +24,10 @@ namespace MathDash
                     NoMoreItems();
                 }
             }
-            return items[curItem];
+            //increment curItem for next time
+            curItem = (curItem + 1);
+            //but load the one we did checks for
+            return items[curItem-1];
         }
 
         //What do I do if there are no more items in list
@@ -40,11 +42,16 @@ namespace MathDash
         /// <returns>True if an error occurred/file didn't exist or had no items in it</returns>
         public bool LoadFromFile(string fileName)
         {
+            Debug.Log("generic decider loads " + fileName);
             items = FileInput.Instance.ReadAndDeserialize<T>(fileName).ToList();
             bool gotSomething = (items.Count != 0);
             if(gotSomething)
             {
                 ResetPosition();
+            }
+            else
+            {
+                Debug.Log("we didn't get anything");
             }
             return gotSomething;
         }

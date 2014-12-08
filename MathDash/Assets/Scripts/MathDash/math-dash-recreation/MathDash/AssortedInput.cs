@@ -14,7 +14,7 @@ namespace MathDash
         protected PeriodManager periodManager;
         protected BubbleNumberSpawner bubbleSpawner;
 
-        protected void Start()
+        protected void Awake()
         {
             pauser = PauseToolbox.Instance.GetComponent<PauseTimer>();
             periodManager = PauseToolbox.Instance.GetComponent<PeriodManager>();
